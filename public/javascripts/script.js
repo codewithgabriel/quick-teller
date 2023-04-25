@@ -1,7 +1,28 @@
-const stripe = Stripe('pk_test_51N0O2pAZozJ35Fx7GLHHmDyIkNbNjiZfOfFds3UG7dSuwvzrseZCgGDpOjo1prVvRyGzdkA4TpR6zEC8E6wrbpj000pXketXHL');
+
+const stripe = Stripe("sk_test_51N0O2pAZozJ35Fx7sLFZZv3tuOuzLjyzmqqNAr48VNv3Bf38PluwYb7ka5fOM4QhPLTbOooNhuj6hZ9DqzI4JodL006xwnr26A");
 
 const elements = stripe.elements();
-const cardElement = elements.create('card');
+
+
+var style = {
+  base: {
+    color: "#32325d",
+    fontFamily: 'Arial, sans-serif',
+    fontSmoothing: "antialiased",
+    fontSize: "16px",
+    "::placeholder": {
+      color: "#32325d"
+    }
+  },
+  invalid: {
+    fontFamily: 'Arial, sans-serif',
+    color: "#fa755a",
+    iconColor: "#fa755a"
+  }
+};
+
+
+const cardElement = elements.create('card' ,  { style: style } );
 cardElement.mount('#card-element');
 
 
@@ -18,6 +39,8 @@ cardElement.on('change', function(event) {
   }
 });
 
+
+console.log(cardElement)
 form.addEventListener('submit', async event => {
   event.preventDefault();
   resultContainer.textContent = '';
