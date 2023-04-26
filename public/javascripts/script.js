@@ -29,6 +29,8 @@ cardElement.mount('#card-element');
 
 
 const form = document.getElementById("payment-form");
+const amount  = form['amount'];
+
 
 var resultContainer = document.getElementById('payment-result');
 cardElement.on('change', function(event) {
@@ -60,7 +62,7 @@ const handlePaymentMethodResult = async ({ paymentMethod, error }) => {
     const response = await fetch("/pay", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ payment_method_id: paymentMethod.id })
+      body: JSON.stringify({ payment_method_id: paymentMethod.id , amount: amount.value})
     });
 
     const responseJson = await response.json();

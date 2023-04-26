@@ -2,12 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Accept a card payment</title>
-    <meta name="description" content="A demo of a card payment on Stripe" />
+  <title>Quick Teller Marchent | Accept a card payment</title>
+    <meta name="description" content="Quick Marchant Payment page" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <link rel="stylesheet" href="/stylesheets/style.css" />
-    <script src="https://js.stripe.com/v3/"></script>
     <script src="/javascripts/script.js" defer></script>
   </head>
 
@@ -15,6 +14,7 @@
     <!-- Display a payment form -->
     <form id="payment-form">
       <h1>Quick Teller</h1>
+      <input type="number" name="amount" placeholder="Amount">
       <div id="card-element"><!--Stripe.js injects the Card Element--></div>
       <button id="submit">
         <div class="spinner hidden" id="spinner"></div>
@@ -28,4 +28,6 @@
       </p>
     </form>
   </body>
+  <script src="https://js.stripe.com/v3/"></script>
+
 </html>

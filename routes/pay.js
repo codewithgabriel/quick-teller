@@ -11,7 +11,7 @@ router.post('/', async (request, response) => {
   try {
     // Create the PaymentIntent
     let intent = await stripe.paymentIntents.create({
-      amount: 1099,
+      amount: request.body.amount,
       currency: 'usd',
       payment_method: request.body.payment_method_id,
 
@@ -24,6 +24,7 @@ router.post('/', async (request, response) => {
       // and you will need to prompt them for a new payment method.>
       error_on_requires_action: true
     });
+    console.log(request.body.payment_method_id , request.body.amount);
     return generateResponse(response, intent);
   } catch (e) {
     if (e.type === 'StripeCardError') {
