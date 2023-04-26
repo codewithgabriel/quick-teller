@@ -1,0 +1,364 @@
+/* Fonts & Colors*/
+
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   scroll-behavior: smooth;
+}
+
+body {
+   font-family: 'Open Sans', sans-serif;
+   color: #333;
+   background: white;
+   line-height: 1.6;
+ 
+}
+
+ul {
+   list-style: none;
+}
+
+a {
+   text-decoration: none;
+   color: #333;
+}
+
+h1,
+h2 {
+   font-weight: 300;
+   line-height: 1.2;
+}
+
+h3,
+h4 {
+   margin: 15px 0;
+}
+
+p {
+   margin: 10px 0;
+}
+
+img {
+   width: 100%;
+}
+
+.primary-text {
+   color: #28a745;
+}
+
+.secondary-text {
+   color: #0284d0;
+}
+
+/* Buttons & Backgrounds */
+
+.btn {
+   cursor: pointer;
+   display: inline-block;
+   padding: 10px 30px;
+   color: #fff;
+   background-color: #28a745;
+   border: none;
+   border-radius: 5px;
+}
+
+.btn-outline {
+   border: 1px solid white;
+   background: transparent;
+}
+
+.btn:hover {
+   opacity: 0.9;
+}
+
+.btn-dark,
+.bg-dark {
+   background: #333;
+   color: white;
+}
+
+.btn-light {
+   background: #f4f4f4;
+   color: #333;
+}
+
+.bg-primary {
+   background-color: #28a745;
+   color: white;
+}
+
+/* Navigation Bar */
+
+#navbar {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   background: #333;
+   opacity: 0.8;
+   color: #fff;
+   height: 70px;
+   top: 0px;
+   position: fixed;
+   width: 100%;
+   padding: 0 30px;
+}
+
+.menu ul {
+   display: flex;
+}
+
+#navbar h1 {
+   font-weight: 400;
+}
+
+.menu a {
+   color: white;
+   padding: 10px 20px;
+   margin: 0 5px;
+
+}
+
+.menu a:hover {
+   border-bottom: #28a745 2px solid;
+}
+
+/* Header Area */
+
+header {
+   height: 100vh;
+   background: url("../img/home/showcase.jpg") no-repeat center center/cover;
+   text-align: center;
+   color: white;
+   position: relative;
+
+}
+
+#cover {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   height: 100%;
+}
+
+#cover h1 {
+   font-size: 3em;
+}
+
+#cover p {
+   font-size: 1.3em;
+   margin: 20px;
+}
+
+header::before {
+   content: "";
+   position: absolute;
+   top: 0;
+   left: 0;
+   height: 100%;
+   width: 100%;
+   background: rgba(0, 0, 0, 0.6);
+}
+
+header * {
+   z-index: 10;
+}
+
+.flex {
+   display: flex;
+   padding: 30px 50px;
+
+}
+
+.box {
+   text-align: center;
+   margin: 30px;
+}
+
+.box i {
+   background: #28a745;
+   color: white;
+   border-radius: 50px;
+   padding: 15px;
+}
+
+/* Solutions */
+
+.row {
+   display: flex;
+   flex-wrap: wrap;
+   width: 100%;
+}
+
+.column {
+   display: flex;
+   flex-direction: column;
+   flex-basis: 100%;
+   flex: 1;
+}
+
+.column img {
+   object-fit: cover;
+   height: 100%;
+   width: 100%;
+}
+
+.column.text {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   padding: 0 20px;
+}
+
+/* Cases */
+
+.section-header {
+   text-align: center;
+   padding: 20px 5px 40px;
+}
+
+.grid-row {
+   display: flex;
+}
+
+.grid-column {
+   flex-basis: 25%;
+   max-width: 25%;
+   padding: 0 3px;
+}
+
+.grid-column img:hover {
+   opacity: 0.7;
+}
+
+.large-heading {
+   font-size: 40px;
+   margin-bottom: 20px
+}
+
+/* Blog */
+
+.flex-reverse {
+   flex-direction: row-reverse;
+}
+
+.bg-secondary {
+   background: #0284d0;
+   color: #fff;
+}
+
+.blog {
+   margin-top: 35px;
+}
+
+/* Team */
+
+#team .flex {
+   padding-top: 0;
+}
+
+.teammate {
+   text-align: center;
+}
+
+.teammate img {
+   border-radius: 50%;
+   padding: 0 10px;
+}
+
+.teammate h4 {
+   margin-bottom: -5px;
+}
+
+/* Callback */
+
+.row .text {
+   padding-bottom: 30px;
+}
+
+.bg-light {
+   background: #f4f4f4;
+   color: #333;
+}
+
+.column input {
+   display: block;
+   padding: 10px 0;
+   margin: 15px 0;
+   width: 100%;
+   border: none;
+}
+
+.column h1 {
+   margin-top: 20px;
+}
+
+/* Footer */
+
+.bg-dark {
+   color: #f4f4f4;
+   background: #333;
+}
+
+footer a {
+   color: white;
+   margin: 0 10px;
+}
+
+footer {
+   padding: 50px;
+   text-align: center;
+}
+
+/* Mobile */
+
+@media (max-width: 768px){
+#navbar {
+   flex-direction: column;
+   height: 100px;
+   padding: 15px;
+}
+
+#navbar a {
+   padding: 10px 10px;
+   margin: 0 3px;  
+}
+
+#services .flex {
+   flex-direction:column;
+}
+
+#services .row {
+   flex-direction:column;
+}
+
+.grid-row{
+   flex-wrap: wrap;
+}
+
+.grid-column {
+   flex-basis: 50%;
+   max-width: 50%;
+   padding: 0 3px;
+}
+
+#team .flex {
+   flex-direction:column;
+}
+
+.teammate {
+   text-align: center;
+ 
+}
+
+.teammate img {
+   border-radius: 50%;
+   padding: 0 10px;
+   max-width: 70%;
+}
+#contact .row {
+   flex-direction:column;
+}
+
+}
