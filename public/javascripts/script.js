@@ -58,7 +58,8 @@ form.addEventListener('submit', async event => {
 const handlePaymentMethodResult = async ({ paymentMethod, error }) => {
   if (error) {
     // An error happened when collecting card details, show error in payment form
-    resultContainer.textContent = result.error.message;
+
+    resultContainer.textContent = error.message;
   } else {
     // Send paymentMethod.id to your server (see Step 3)
     resultContainer.textContent = 'Processing Payment, Please wait...';
