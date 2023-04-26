@@ -4,7 +4,7 @@ const router = express.Router();
 router.use(express.json());
 const { resolve } = require("path");
 
-const stripe = require('stripe')('sk_test_51N0O2pAZozJ35Fx7sLFZZv3tuOuzLjyzmqqNAr48VNv3Bf38PluwYb7ka5fOM4QhPLTbOooNhuj6hZ9DqzI4JodL006xwnr26A');
+const stripe = require('stripe')(process.env.PRIVATE_KEY);
 
 // Endpoint for when `/pay` is called from client
 router.post('/', async (request, response) => {
@@ -12,7 +12,7 @@ router.post('/', async (request, response) => {
     // Create the PaymentIntent
     let intent = await stripe.paymentIntents.create({
       amount: request.body.amount,
-      currency: 'usd',
+      currency: request.body.currency,
       payment_method: request.body.payment_method_id,
 
       // A PaymentIntent can be confirmed some time after creation,
@@ -24,7 +24,7 @@ router.post('/', async (request, response) => {
       // and you will need to prompt them for a new payment method.>
       error_on_requires_action: true
     });
-    console.log(request.body.payment_method_id , request.body.amount);
+    console.log(request.body.payment_method_id , request.body.amount , request.body.currency);
     return generateResponse(response, intent);
   } catch (e) {
     if (e.type === 'StripeCardError') {

@@ -1,5 +1,5 @@
 
-const stripe = Stripe("pk_test_51N0O2pAZozJ35Fx7GLHHmDyIkNbNjiZfOfFds3UG7dSuwvzrseZCgGDpOjo1prVvRyGzdkA4TpR6zEC8E6wrbpj000pXketXHL");
+const stripe = Stripe("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 ");
 
 const elements = stripe.elements();
 
@@ -30,6 +30,8 @@ cardElement.mount('#card-element');
 
 const form = document.getElementById("payment-form");
 const amount  = form['amount'];
+const currency  = form['currency'];
+
 
 
 var resultContainer = document.getElementById('payment-result');
@@ -59,10 +61,12 @@ const handlePaymentMethodResult = async ({ paymentMethod, error }) => {
     resultContainer.textContent = result.error.message;
   } else {
     // Send paymentMethod.id to your server (see Step 3)
+    resultContainer.textContent = 'Processing Payment, Please wait...';
+
     const response = await fetch("/pay", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ payment_method_id: paymentMethod.id , amount: amount.value})
+      body: JSON.stringify({ payment_method_id: paymentMethod.id , amount: amount.value , currency: currency.value})
     });
 
     const responseJson = await response.json();
