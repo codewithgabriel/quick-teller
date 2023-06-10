@@ -1,9 +1,11 @@
+require('dotenv').config()
+
+
 // Using Express
 const express = require('express');
 const router = express.Router();
 router.use(express.json());
 const { resolve } = require("path");
-
 const stripe = require('stripe')(process.env.PRIVATE_KEY);
 
 // Endpoint for when `/pay` is called from client
