@@ -1,19 +1,17 @@
-require('dotenv').config()
-
-
 // Using Express
 const express = require('express');
-const router = express.Router();
-router.use(express.json());
-const { resolve } = require("path");
-const stripe = require('stripe')(process.env.PRIVATE_KEY);
+const app = express();
+const route = express.Router();
+
+
+const stripe = require('stripe')('sk_test_51NH5RHCsLbvLk5lqYy2Yc2wp5BLYBHXhlpbeRIff3OAicBVLupoTGfuVYKhADWSVrjjFdz0JExgeHfy8poMXqBkb00jg30C2Uh');
 
 // Endpoint for when `/pay` is called from client
-router.post('/', async (request, response) => {
+route.post('/', async (request, response) => {
   try {
     // Create the PaymentIntent
     let intent = await stripe.paymentIntents.create({
-      amount: request.body.amount,
+      amount: parseInt(request.body.amount) * 100,
       currency: request.body.currency,
       payment_method: request.body.payment_method_id,
 
@@ -26,14 +24,13 @@ router.post('/', async (request, response) => {
       // and you will need to prompt them for a new payment method.>
       error_on_requires_action: true
     });
-    console.log(request.body.payment_method_id , request.body.amount , request.body.currency);
     return generateResponse(response, intent);
   } catch (e) {
     if (e.type === 'StripeCardError') {
       // Display error on client
       return response.send({ error: e.message });
     } else {
-      // Something else hrouterened
+      // Something else happened
       return response.status(500).send({ error: e.type });
     }
   }
@@ -49,4 +46,5 @@ function generateResponse(response, intent) {
   }
 }
 
-module.exports = router
+
+module.exports = route

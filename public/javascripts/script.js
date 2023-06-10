@@ -1,5 +1,5 @@
 
-const stripe = Stripe("pk_test_51NH5RHCsLbvLk5lqbKGZXUN3v8wGDzMXi8xbbEEcA5Npz4wATkd7z9oKK6wghq1Eacbnj5Eedmry0hAuf49gtHA600JO45Wu08");
+const stripe = Stripe("pk_live_51NH5RHCsLbvLk5lqkJswFBYxcyomg1dXxINw9QcoVlNS0HonAmCFOibtYmriivueil0vOsZiyEsaVBxCsDBiNTZ500ntcjW3OL");
 
 const elements = stripe.elements();
 
