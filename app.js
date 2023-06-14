@@ -10,6 +10,12 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var payRouter = require('./routes/pay');
+const productRoute = require('./routes/product')
+const paypalRoute = require('./routes/paypal')
+const createOrderRoute = require('./routes/createOrder')
+const captureOrderRoute = require('./routes/captureOrder')
+
+
 
 var makepayRouter = require('./routes/makepay');
 
@@ -31,6 +37,12 @@ app.use('/users', usersRouter);
 app.use('/pay', payRouter)
 app.use('/test', testRouter)
 app.use('/makepay', makepayRouter)
+app.use('/product' , productRoute)
+app.use('/mpaypal' , paypalRoute)
+app.use('/create-paypal-order' , createOrderRoute)
+app.use('/capture-paypal-order' , captureOrderRoute)
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title> Product </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+  </head>
+  <body>
+
+    <div class="container-fuild col-lg-6 col-md-6 col-sm-12 col-xm-12" style="margin: auto; margin-top: 20px;">
+      <h3> Make Payment </h3>
+      <form action="/mpaypal" method="GET">
+          <div class="mb-3">
+            <label for="ProductName" class="form-label">Product Name</label>
+            <input type="text"  class="form-control" id="ProductName"  name="ProductName" aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text">Name Of Product you want to sell</div>
+          </div>
+          <div class="mb-3">
+            <label for="Description" class="form-label">Product Description</label>
+            <input type="text" class="form-control" id="Description" name="Description">
+          </div>
+          <div class="mb-3">
+            <label for="price" class="form-label">Price</label>
+            <input type="number" class="form-control" id="price" name="price">
+          </div>
+          <div class="mb-3">
+            <label for="currency" class="form-label">Currency</label>
+            <input type="text" class="form-control" id="currency" name="currency">
+          </div>
+          <div class="mb-3">
+            <label for="Quantity" class="form-label">Quantity</label>
+            <input type="number" class="form-control" id="quantity" name="quantity" value="1">
+          </div>
+
+          <div class="mb-3">
+            <label for="sku" class="form-label">SKU</label>
+            <button onclick="getSKU()"  class="btn btn-secondary">Generate SKU </button><br><br>
+
+            <input type="text" class="form-control" id="sku" name="sku">
+          </div>
+
+
+
+          <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+  </body>
+
+  <script>
+    function getSKU() {
+      var productName = document.getElementById('ProductName').value.substring(0, 2);
+      var description = document.getElementById('Description').value.substring(0,2);
+      var price = document.getElementById('price').value.substring(0,2);
+      var currency = document.getElementById('currency').value.substring(0,2);
+      var sku = productName+description+price+currency;
+      var sku1 = sku.toUpperCase();
+    	document.getElementById('sku').value = sku1;
+     	// var cpyclipboard = document.getElementById("output");
+      // cpyclipboard.select();
+      // document.execCommand("copy");
+    }
+
+  </script>
+</html>
