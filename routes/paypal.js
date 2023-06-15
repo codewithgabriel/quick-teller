@@ -9,7 +9,7 @@ route.get('/' , function(req, res){
     const param = path.parse(req.url , true).query;
     process.env.currency = param.currency;
     process.env.price = param.price;
-    res.render('paypal', {currency: param.currency , clientId: process.env.CLIENT_ID , sku: param.sku , price: param.price , quantity: param.quantity});
+    res.render('paypal', {currency: param.currency , clientId: process.env.LIVE_CLIENT_ID , sku: param.sku , price: param.price , quantity: param.quantity});
 })
 
 
