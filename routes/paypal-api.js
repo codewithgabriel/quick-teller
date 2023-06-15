@@ -4,7 +4,7 @@ const fetch =  require('node-fetch-commonjs');
 
 
 const { LIVE_CLIENT_ID, LIVE_SECRET_ID } = process.env;
-const base = "https://api-m.sandbox.paypal.com";
+const base = "https://api-m.paypal.com";
 
 const createOrder = async function createOrder() {
   const accessToken = await generateAccessToken();
