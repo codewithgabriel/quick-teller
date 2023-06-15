@@ -3,7 +3,7 @@ const fetch =  require('node-fetch-commonjs');
 
 
 
-const { CLIENT_ID, APP_SECRET } = process.env;
+const { LIVE_CLIENT_ID, LIVE_SECRET_ID } = process.env;
 const base = "https://api-m.sandbox.paypal.com";
 
 const createOrder = async function createOrder() {
@@ -46,7 +46,7 @@ const capturePayment =  async function capturePayment(orderId) {
 }
 
 const generateAccessToken = async function generateAccessToken() {
-  const auth = Buffer.from(CLIENT_ID + ":" + APP_SECRET).toString("base64");
+  const auth = Buffer.from(LIVE_CLIENT_ID + ":" + LIVE_SECRET_ID).toString("base64");
   const response = await fetch(`${base}/v1/oauth2/token`, {
     method: "post",
     body: "grant_type=client_credentials",
